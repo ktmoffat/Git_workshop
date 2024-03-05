@@ -37,5 +37,9 @@ source("code/source_functions.R")
 # Linear mixed effect model
     nlme_model <- nlme::lme(ant_richness ~ soil_hum_prop + as.factor(forest_type),
                            random = ~1|site_id, data = ant_richness)
-  summary(nlme_model)    
+  summary(nlme_model)
+
+# Adding a simple plot
+  ggplot(aes(x=ant_richness, y=soil_hum_prop), data = ant_richness) +
+    geom_point(aes(colour=as.factor(site_id)))
   
