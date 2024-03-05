@@ -1,6 +1,7 @@
 #analysis of canopy data
 #install.packages("ggplot2")
 library(ggplot2)
+library(nlme)
 
 source("code/source_functions.R")
 
@@ -33,4 +34,8 @@ source("code/source_functions.R")
     ant_richness <- read.csv("data/ant_richness.csv")
     ant_richness$soil_hum_prop <- convert_humidity(ant_richness$soil_hum_perc)
     
-  ## ADD YOUR ANALYSES HERE ####
+# Linear mixed effect model
+    nlme_model <- nlme::lme(ant_richness ~ soil_hum_prop + as.factor(forest_type),
+                           random = ~1|site_id, data = ant_richness)
+  summary(nlme_model)    
+  
