@@ -53,7 +53,17 @@ source("code/source_functions.R")
   ggplot(aes(x=ant_richness, y=soil_hum_prop), data = ant_richness) +
     geom_point(aes(colour=as.factor(site_id)))
 
+ggplot(aes(x=ant_richness, y=soil_hum_prop), data = ant_richness) +
+    geom_point(aes(colour=as.factor(site_id)))+
+    geom_line(aes(group=site_id))
+  
+  
+  ggplot(aes(y=ant_richness, x=site_id), data = ant_richness) +
+    geom_point(aes(colour=forest_type))
+  
+
 # Adding another simple plot (says nothing)
   ggplot(aes(x=ant_richness, y=forest_type), data = ant_richness) +
     geom_point(aes(colour=as.factor(site_id)))
+
   
