@@ -62,8 +62,8 @@ ggplot(aes(x=ant_richness, y=soil_hum_prop), data = ant_richness) +
 
   figure1 <- ggplot(aes(y=ant_richness, x=site_id, colour=forest_type), data = ant_richness) +
     geom_point()+
-    scale_color_viridis_d()+
-    # scale_color_manual(values=c("red", "black"))+
+    # scale_color_viridis_d()+
+    scale_color_manual(values=c("red", "black"))+
     theme_bw()
   print(figure1)
   dev.off()
